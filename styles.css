@@ -1,0 +1,18 @@
+* {
+    font-family: "Times New Roman", serif;
+    font-size: 25px;
+}
+.make-green {
+    font-weight: bold;
+    color: green;
+}
+
+.make-blue {
+    font-weight: bold;
+    color: blue;
+}
+
+.make-red {
+    font-weight: bold;
+    color: red;
+}
