@@ -61,7 +61,7 @@ purchasedToBlue.textContent = tvsPurchased;
 
 // Opdracht 2e: Geef in het rood weer hoeveel tv's er nog verkocht moeten worden.
 
-let tvsToBeSold = 0;
+let tvsToBeSold;
 tvsToBeSold = tvsPurchased - tvsSold;
 
 const toBeSoldToRed = document.getElementById("to-be-sold-red");
@@ -69,9 +69,26 @@ toBeSoldToRed.textContent = tvsToBeSold;
 
 
 // Opdracht 3 - Array methoden en functies
-// Opdracht 3a: Gebruik een array-methode om alle tv merken (zoals Philips, NIKKEI, etc.) in een lijst op de pagina weer te geven. Zorg ervoor dat dit ook zou werken als we 200 tv's in onze array zouden hebben staan. Dat er dubbele namen in zitten, is niet erg.
+// Opdracht 3a: Gebruik een array-methode om alle tv-merken (zoals Philips, NIKKEI, etc.) in een lijst op de pagina weer te geven. Zorg ervoor dat dit ook zou werken als we 200 tv's in onze array zouden hebben staan. Dat er dubbele namen in zitten, is niet erg.
+
+const arrayTvBrands = inventory.map((inventoryitem) => {
+  return inventoryitem.brand;
+})
+
+console.log(arrayTvBrands);
+
+const listTvBrandsOnPage = document.getElementById("list-tvbrands");
+listTvBrandsOnPage.textContent = listTvBrandsOnPage;
+
 // Opdracht 3b: Schrijf de code uit 3a om naar een functie die een array met tv-objecten verwacht. Het is handig om onze scripts als functies op te zetten, zodat we ze gemakkelijk kunnen hergebruiken. Tip: vergeet deze functie -declaratie niet aan te roepen!
 
+function getBrandsList(array) {
+    for (let i = 0; i < array.length; i++) {
+        return inventory[i].brand;
+    }
+}
+
+console.log(getBrandsList(inventory));
 
 //Opdracht 4 -Functies
 // Maak deze gehele opdracht eerst alsof je het voor één tv doet. We gaan één tv weergeven in het volgende format:
@@ -81,14 +98,17 @@ toBeSoldToRed.textContent = tvsToBeSold;
 // 43 inch (109 cm) | 50 inch (127 cm) | 58 inch (147 cm)
 
 // Opdracht 4a: Maak een herbruikbare functie die een string genereert voor de naam van één tv en deze teruggeeft in het format [merk] [type] - [naam] zoals Philips 43PUS6504/12 - 4K TV of NIKKEI NH3216SMART - HD smart TV.
-//
+
+
+
 // Opdracht 4b: Maak een herbruikbare functie die de prijs van één tv als parameter verwacht (zoals 379 of 159) teruggeeft in het format €379,- of €159,-.
-//
+
 // Opdracht 4c: Maak een herbruikbare functie die een string genereert voor alle beschikbare schermgroottes van één tv. De functie geeft dit terug in het format [schermgrootte] inches ([schermgrootte omgerekend]cm) | [schermgrootte] inches ([schermgrootte omgerekend]cm) etc. Als een tv maar één schermgrootte heeft ([32]) wordt de output 32 inch (81 cm). Wanneer een tv vier schermgroottes heeft ([43, 50, 55, 58]) wordt de output 43 inch (109 cm) | 50 inch (127 cm) | 58 inch (147 cm). Let op: om één string te genereren uit een array van schermgroottes zul je een for-loop voor moeten gebruiken.
-//
+
 // Opdracht 4d: Schrijf een script die de informatie van de Philips 43PUS6504/12 tv weergeeft op de pagina zoals onderstaand voorbeeld. Gebruik de functies die je hebt gemaakt in opdracht 4a, 4b en 4c.
-//
+
 // Philips 43PUS6504/12 - 4K TV
 // €379,-
 // 43 inch (109 cm) | 50 inch (127 cm) | 58 inch (147 cm)
+
 // Opdracht 4e: Maak een herbruikbare functie die de informatie van alle tv's weergeeft op de pagina. Gebruik hiervoor de map-methode in combinatie met de functies die je hebt gemaakt in opdracht 4a, 4b en 4c.
